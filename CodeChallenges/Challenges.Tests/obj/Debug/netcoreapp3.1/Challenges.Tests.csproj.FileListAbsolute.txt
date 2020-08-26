@@ -1,0 +1,4 @@
+C:\Users\Byron Keyes\Desktop\401DSA\CodeChallenges\Challenges.Tests\obj\Debug\netcoreapp3.1\Challenges.Tests.csprojAssemblyReference.cache
+C:\Users\Byron Keyes\Desktop\401DSA\CodeChallenges\Challenges.Tests\obj\Debug\netcoreapp3.1\Challenges.Tests.AssemblyInfoInputs.cache
+C:\Users\Byron Keyes\Desktop\401DSA\CodeChallenges\Challenges.Tests\obj\Debug\netcoreapp3.1\Challenges.Tests.AssemblyInfo.cs
+C:\Users\Byron Keyes\Desktop\401DSA\CodeChallenges\Challenges.Tests\obj\Debug\netcoreapp3.1\Challenges.Tests.csproj.CoreCompileInputs.cache
