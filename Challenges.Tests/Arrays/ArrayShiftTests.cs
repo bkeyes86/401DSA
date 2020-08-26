@@ -6,7 +6,7 @@ namespace Challenges.Tests.arrays
 {
    public class ArrayShiftTests
     {
-        [Fact]
+        [Fact(Skip = "skipping so we can focus on challenge 3")]
         public static void Shift_Array_add_num_in_middle_of_array()
         {
             int[] arrayToShift = new[] { 1, 2, 3, 4 };
