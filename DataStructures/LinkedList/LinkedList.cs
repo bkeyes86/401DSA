@@ -44,7 +44,7 @@ namespace DataStructures.LinkedList
 
             while (current != null)
             {
-                result += $"{{ {current.Value} }} ->";
+                result += $"{{ {current.Value} }} -> ";
                 current = current.Next;
 
             }

@@ -36,6 +36,11 @@ namespace DataStructures.Tests.LinkedList
             //Assert
             Assert.Equal("{ 2 } -> { 1 } -> NULL", list.ToString());
 
+            //Act
+            list.Insert(3);
+
+            //Assert
+            Assert.Equal("{ 3 } -> { 2 } -> { 1 } -> NULL", list.ToString());
         }
 
         [Fact]
@@ -53,8 +58,7 @@ namespace DataStructures.Tests.LinkedList
 
             //Assert
             bool expected = false;
-            Assert.Equal(list.Includes(4), expected);
-
+            Assert.Equal(expected, list.Includes(4));
         }
 
         [Fact]
