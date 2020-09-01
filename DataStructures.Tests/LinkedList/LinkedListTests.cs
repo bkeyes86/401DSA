@@ -1,3 +1,4 @@
+using System;
 using DataStructures.LinkedList;
 using Xunit;
 
@@ -38,6 +39,19 @@ namespace DataStructures.Tests.LinkedList
 
             //Assert
             Assert.Equal("{ 3 } -> { 2 } -> { 1 } -> NULL", list.ToString());
+        }
+
+        [Fact]
+        public void Includes_finds_nothing_in_empty_list()
+        {
+            // Arrange
+            LinkedLister list = new LinkedLister();
+
+            // Act
+            bool result = list.Includes(1);
+
+            // Assert
+            Assert.False(result);
         }
 
         [Theory]
@@ -93,6 +107,39 @@ namespace DataStructures.Tests.LinkedList
 
             // Assert
             Assert.Equal("{ 6 } -> { 5 } -> { 3 } -> NULL", list.ToString());
+        }
+
+        [Fact]
+        public void InsertBefore_throws_for_empty_list()
+        {
+            // Arrange
+            LinkedLister list = new LinkedLister();
+
+            // Assert
+            Exception ex = Assert.Throws<ValueMissingException>(() =>
+            {
+                // Act
+                list.InsertBefore(5, 1);
+            });
+
+            Assert.Equal("Value 5 is missing.", ex.Message);
+        }
+
+        [Fact]
+        public void InsertBefore_throws_for_missing_value_in_non_empty_list()
+        {
+            // Arrange
+            LinkedLister list = new LinkedLister();
+            list.Insert(1);
+
+            // Assert
+            Exception ex = Assert.Throws<ValueMissingException>(() =>
+            {
+                // Act
+                list.InsertBefore(5, 1);
+            });
+
+            Assert.Equal("Value 5 is missing.", ex.Message);
         }
     }
 }

@@ -60,5 +60,17 @@
 
             current.Next = node;
         }
+
+        public void InsertBefore(int valueToInsertBefore, int valueToInsert)
+        {
+            if (Head == null)
+            {
+                throw new ValueMissingException(valueToInsertBefore);
+            }
+
+            // TODO: actually insert if found
+
+            throw new ValueMissingException(valueToInsertBefore);
+        }
     }
 }
