@@ -1,8 +1,6 @@
 using System;
-using Xunit;
 using DataStructures.LinkedList;
-using System.Transactions;
-using System.Collections.Generic;
+using Xunit;
 
 namespace DataStructures.Tests.LinkedList
 {
@@ -36,43 +34,112 @@ namespace DataStructures.Tests.LinkedList
             //Assert
             Assert.Equal("{ 2 } -> { 1 } -> NULL", list.ToString());
 
+            //Act
+            list.Insert(3);
+
+            //Assert
+            Assert.Equal("{ 3 } -> { 2 } -> { 1 } -> NULL", list.ToString());
         }
 
         [Fact]
-        public void Includes_finds_input_in_list()
+        public void Includes_finds_nothing_in_empty_list()
+        {
+            // Arrange
+            LinkedLister list = new LinkedLister();
+
+            // Act
+            bool result = list.Includes(1);
+
+            // Assert
+            Assert.False(result);
+        }
+
+        [Theory]
+        [InlineData(0, false)]
+        [InlineData(1, true)]
+        [InlineData(2, true)]
+        [InlineData(3, true)]
+        [InlineData(4, true)]
+        [InlineData(5, true)]
+        [InlineData(6, false)]
+        public void Includes_finds_input_in_list(int valueToFind, bool expected)
         {
             //Arrange
             LinkedLister list = new LinkedLister();
 
-            //Act 
             list.Insert(1);
             list.Insert(2);
             list.Insert(3);
             list.Insert(4);
             list.Insert(5);
 
-            //Assert
-            bool expected = false;
-            Assert.Equal(list.Includes(4), expected);
+            //Act
+            bool result = list.Includes(valueToFind);
 
+            //Assert
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Insert_new_node_in_empty_list()
+        {
+            // Arrange
+            LinkedLister list = new LinkedLister();
+
+            // Act
+            list.Append(3);
+
+            // Assert
+            Assert.Equal("{ 3 } -> NULL", list.ToString());
         }
 
         [Fact]
         public void Insert_new_node_in_list()
         {
+            // Arrange
             LinkedLister list = new LinkedLister();
 
             list.Insert(5);
             list.Insert(6);
-            list.Insert(8);
-            list.Insert(9);
 
+            // Act
             list.Append(3);
 
-            Assert.Equal("Hello", list.ToString());
-
+            // Assert
+            Assert.Equal("{ 6 } -> { 5 } -> { 3 } -> NULL", list.ToString());
         }
 
-    }
+        [Fact]
+        public void InsertBefore_throws_for_empty_list()
+        {
+            // Arrange
+            LinkedLister list = new LinkedLister();
 
+            // Assert
+            Exception ex = Assert.Throws<ValueMissingException>(() =>
+            {
+                // Act
+                list.InsertBefore(5, 1);
+            });
+
+            Assert.Equal("Value 5 is missing.", ex.Message);
+        }
+
+        [Fact]
+        public void InsertBefore_throws_for_missing_value_in_non_empty_list()
+        {
+            // Arrange
+            LinkedLister list = new LinkedLister();
+            list.Insert(1);
+
+            // Assert
+            Exception ex = Assert.Throws<ValueMissingException>(() =>
+            {
+                // Act
+                list.InsertBefore(5, 1);
+            });
+
+            Assert.Equal("Value 5 is missing.", ex.Message);
+        }
+    }
 }

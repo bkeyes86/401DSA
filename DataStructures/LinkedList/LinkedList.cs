@@ -1,13 +1,8 @@
-﻿using System;
-using System.Net.Http.Headers;
-using System.Transactions;
-
-namespace DataStructures.LinkedList
+﻿namespace DataStructures.LinkedList
 {
     public class LinkedLister
     {
         public Node Head { get; set; }
-
 
         public void Insert(int value)
         {
@@ -28,13 +23,10 @@ namespace DataStructures.LinkedList
                 if (current.Value == input)
                 {
                     return true;
-
                 }
                 current = current.Next;
-
             }
             return false;
-
         }
 
         public override string ToString()
@@ -44,36 +36,41 @@ namespace DataStructures.LinkedList
 
             while (current != null)
             {
-                result += $"{{ {current.Value} }} ->";
+                result += $"{{ {current.Value} }} -> ";
                 current = current.Next;
-
             }
             return result + "NULL";
-
         }
+
         public void Append(int value)
         {
             Node node = new Node(value);
             Node current = Head;
 
+            if (current == null)
+            {
+                Head = node;
+                return;
+            }
+
             while (current.Next != null)
             {
                 current = current.Next;
-
             }
 
-            current.Next =  node;
+            current.Next = node;
         }
-    
-        
 
+        public void InsertBefore(int valueToInsertBefore, int valueToInsert)
+        {
+            if (Head == null)
+            {
+                throw new ValueMissingException(valueToInsertBefore);
+            }
+
+            // TODO: actually insert if found
+
+            throw new ValueMissingException(valueToInsertBefore);
+        }
     }
-
 }
-
-
-    
-
-        
-        
-    
