@@ -1,8 +1,5 @@
-using System;
-using Xunit;
 using DataStructures.LinkedList;
-using System.Transactions;
-using System.Collections.Generic;
+using Xunit;
 
 namespace DataStructures.Tests.LinkedList
 {
@@ -49,7 +46,7 @@ namespace DataStructures.Tests.LinkedList
             //Arrange
             LinkedLister list = new LinkedLister();
 
-            //Act 
+            //Act
             list.Insert(1);
             list.Insert(2);
             list.Insert(3);
@@ -74,9 +71,6 @@ namespace DataStructures.Tests.LinkedList
             list.Append(3);
 
             Assert.Equal("Hello", list.ToString());
-
         }
-
     }
-
 }
