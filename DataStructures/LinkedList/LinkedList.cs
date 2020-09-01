@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net.Http.Headers;
+using System.Transactions;
 
 namespace DataStructures.LinkedList
 {
@@ -49,6 +51,21 @@ namespace DataStructures.LinkedList
             return result + "NULL";
 
         }
+        public void Append(int value)
+        {
+            Node node = new Node(value);
+            Node current = Head;
+
+            while (current.Next != null)
+            {
+                current = current.Next;
+
+            }
+
+            current.Next =  node;
+        }
+    
+        
 
     }
 

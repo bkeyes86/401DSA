@@ -1,7 +1,8 @@
 using System;
 using Xunit;
 using DataStructures.LinkedList;
-
+using System.Transactions;
+using System.Collections.Generic;
 
 namespace DataStructures.Tests.LinkedList
 {
@@ -53,6 +54,22 @@ namespace DataStructures.Tests.LinkedList
             //Assert
             bool expected = false;
             Assert.Equal(list.Includes(4), expected);
+
+        }
+
+        [Fact]
+        public void Insert_new_node_in_list()
+        {
+            LinkedLister list = new LinkedLister();
+
+            list.Insert(5);
+            list.Insert(6);
+            list.Insert(8);
+            list.Insert(9);
+
+            list.Append(3);
+
+            Assert.Equal("Hello", list.ToString());
 
         }
 
