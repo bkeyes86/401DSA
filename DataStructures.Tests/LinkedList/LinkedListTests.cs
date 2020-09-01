@@ -67,18 +67,32 @@ namespace DataStructures.Tests.LinkedList
         }
 
         [Fact]
+        public void Insert_new_node_in_empty_list()
+        {
+            // Arrange
+            LinkedLister list = new LinkedLister();
+
+            // Act
+            list.Append(3);
+
+            // Assert
+            Assert.Equal("{ 3 } -> NULL", list.ToString());
+        }
+
+        [Fact]
         public void Insert_new_node_in_list()
         {
+            // Arrange
             LinkedLister list = new LinkedLister();
 
             list.Insert(5);
             list.Insert(6);
-            list.Insert(8);
-            list.Insert(9);
 
+            // Act
             list.Append(3);
 
-            Assert.Equal("Hello", list.ToString());
+            // Assert
+            Assert.Equal("{ 6 } -> { 5 } -> { 3 } -> NULL", list.ToString());
         }
     }
 }

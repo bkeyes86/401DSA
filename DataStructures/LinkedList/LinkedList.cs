@@ -47,6 +47,12 @@
             Node node = new Node(value);
             Node current = Head;
 
+            if (current == null)
+            {
+                Head = node;
+                return;
+            }
+
             while (current.Next != null)
             {
                 current = current.Next;
