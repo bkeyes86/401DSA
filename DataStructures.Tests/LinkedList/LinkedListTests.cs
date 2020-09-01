@@ -40,22 +40,30 @@ namespace DataStructures.Tests.LinkedList
             Assert.Equal("{ 3 } -> { 2 } -> { 1 } -> NULL", list.ToString());
         }
 
-        [Fact]
-        public void Includes_finds_input_in_list()
+        [Theory]
+        [InlineData(0, false)]
+        [InlineData(1, true)]
+        [InlineData(2, true)]
+        [InlineData(3, true)]
+        [InlineData(4, true)]
+        [InlineData(5, true)]
+        [InlineData(6, false)]
+        public void Includes_finds_input_in_list(int valueToFind, bool expected)
         {
             //Arrange
             LinkedLister list = new LinkedLister();
 
-            //Act
             list.Insert(1);
             list.Insert(2);
             list.Insert(3);
             list.Insert(4);
             list.Insert(5);
 
+            //Act
+            bool result = list.Includes(valueToFind);
+
             //Assert
-            bool expected = false;
-            Assert.Equal(expected, list.Includes(4));
+            Assert.Equal(expected, result);
         }
 
         [Fact]
