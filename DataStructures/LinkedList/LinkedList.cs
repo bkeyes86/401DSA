@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Transactions;
 
@@ -64,8 +65,21 @@ namespace DataStructures.LinkedList
 
             current.Next =  node;
         }
-    
-        
+
+        public int SearchListForKthValueFromEnd(int value)
+        {
+            Node current = Head;
+            int count = 0;
+
+            while (current != null)
+            {
+                count++;
+
+                current = current.Next;
+            }
+
+            current = Head;
+        }
 
     }
 
