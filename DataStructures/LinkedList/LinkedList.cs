@@ -77,10 +77,19 @@ namespace DataStructures.LinkedList
 
                 current = current.Next;
             }
+            if(value > count)
+            {
+                throw new NullReferenceException();
+            }
 
             current = Head;
+            for(int i = 0; i < count - value; i++)
+            {
+                current.current.Next;
+            }
+            return current.Value;
         }
-
+       
     }
 
 }

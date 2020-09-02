@@ -72,7 +72,27 @@ namespace DataStructures.Tests.LinkedList
             Assert.Equal("Hello", list.ToString());
 
         }
+        [Fact]
+        public void Searh_at_kthvalue_if_empty_list()
+        {
+            LinkedLister list = new LinkedLister();
+            Assert.Throws<NullReferenceException>(() =>
+            {
+                return list.Search(3);
+            });
+        }
 
+        [Fact]
+        public void Search_list_one_node()
+        {
+            LinkedLister list = new LinkedLister();
+            list.Insert(1);
+            Assert.Throws<NullReferenceException>(() =>
+            {
+                return list.Search(4);
+            });
+        }
     }
 
 }
+    
